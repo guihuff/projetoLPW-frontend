@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import api from "../../Services/api";
-import { Link } from "react-router-dom";
 
 import './styles.css';
 import Loading from "../../Components/Loading";
