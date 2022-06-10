@@ -7,3 +7,21 @@ body,html {
   height: 100vh;
   font-family: monospace;
 }
+
+.container {
+  display: flex;
+  max-width: 1200px;
+  min-width: 350px;
+  width: 90%;
+  align-items: center;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.container-loading {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  height: calc(100vh - 60px);
+}

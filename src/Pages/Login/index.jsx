@@ -1,15 +1,24 @@
-import React, { useState} from "react";
+import React, { useEffect, useState} from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../../Services/api";
 import { login } from "../../Services/auth";
+import { isAuthenticated } from './../../Services/auth'
 
 import Loading from "../../Components/Loading";
 
 const Login = () => {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [data, setData] = useState({email: "", password: ""});
   const [noAuthenticate, setNoAuthenticate] = useState(undefined);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if( isAuthenticated() ) {
+      setLoading(false); 
+      navigate("/app"); 
+    }
+    setLoading(false);
+  }, [navigate]);
 
   const handleLogin = async (e) => {
     setLoading(true);
@@ -30,6 +39,17 @@ const Login = () => {
       }
     }
   }
+  if(loading){
+    return (
+      <>
+        <div className="container">
+          <div className="container-loading">
+            <Loading />
+          </div>
+        </div>
+      </>
+    )
+  }
   
   return (
     <div className="container">
@@ -48,8 +68,8 @@ const Login = () => {
         onChange={(e) => {setData({email: data.email, password: e.target.value})}}
         />
         <button type="submit">Entrar</button>
-        {loading ? <Loading /> : ""}
       </form>
+      {loading ? <Loading /> : ""}
     </div>
   )
 }
