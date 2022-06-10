@@ -1,6 +1,10 @@
 :root {
   --main-bg-color: #3C3C3C;
+  --main-color-two: #FFDE5A;
+  --main-ft-color: #A4A4A4;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=BIZ+UDGothic&display=swap');
 
 * {
   margin: 0;
@@ -9,7 +13,7 @@
 }
 body,html {
   height: 100vh;
-  font-family: monospace;
+  font-family: 'BIZ UDGothic', 'Roboto', monospace;
   background-color: var(--main-bg-color);
 }
 
