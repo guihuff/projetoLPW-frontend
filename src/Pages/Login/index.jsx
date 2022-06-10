@@ -5,6 +5,7 @@ import { login } from "../../Services/auth";
 import { isAuthenticated } from './../../Services/auth'
 
 import Loading from "../../Components/Loading";
+import Header from "../../Components/Header";
 
 const Login = () => {
   const [loading, setLoading] = useState(true);
@@ -52,25 +53,28 @@ const Login = () => {
   }
   
   return (
-    <div className="container">
-      {noAuthenticate ? <h4>{noAuthenticate}</h4> : ""}
-      <form onSubmit={handleLogin}>
-        <input
-        type="email"
-        placeholder="Endereço de e-mail"
-        value={data.email}
-        onChange={(e) => {setData({email: e.target.value, password: data.password})}}
-        />
-        <input
-        type="password"
-        placeholder="Senha"
-        value={data.password}
-        onChange={(e) => {setData({email: data.email, password: e.target.value})}}
-        />
-        <button type="submit">Entrar</button>
-      </form>
-      {loading ? <Loading /> : ""}
-    </div>
+    <>
+      <Header />
+      <div className="container">
+        {noAuthenticate ? <h4>{noAuthenticate}</h4> : ""}
+        <form onSubmit={handleLogin}>
+          <input
+          type="email"
+          placeholder="Endereço de e-mail"
+          value={data.email}
+          onChange={(e) => {setData({email: e.target.value, password: data.password})}}
+          />
+          <input
+          type="password"
+          placeholder="Senha"
+          value={data.password}
+          onChange={(e) => {setData({email: data.email, password: e.target.value})}}
+          />
+          <button type="submit">Entrar</button>
+        </form>
+        {loading ? <Loading /> : ""}
+      </div>
+    </>
   )
 }
 

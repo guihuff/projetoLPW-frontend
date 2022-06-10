@@ -3,6 +3,7 @@ import api from "../../Services/api";
 
 import './styles.css';
 import Loading from "../../Components/Loading";
+import Header from "../../Components/Header";
 // URL DA API: /movie/now_playing?api_key=ab689815313a6cb4fd9a5df7af38599f&language=pt-BR
 
 const Home = () => {
@@ -36,24 +37,27 @@ const Home = () => {
   }
 
   return (
-    <div className='container'>
-      <div className="lista-filmes">
-        {pedidos.map((pedido) => {
-          return (
-            <article key={pedido._id}>
-              <strong>{pedido.table}</strong>
-              {pedido.itens.map((item) => {
-                return (
-                  <article key={item}>
-                    <strong>{item}</strong>
-                  </article>
-                );
-                })}
-            </article>
-          );
-        })}
+    <>
+    <Header />
+      <div className='container'>
+        <div className="lista-filmes">
+          {pedidos.map((pedido) => {
+            return (
+              <article key={pedido._id}>
+                <strong>{pedido.table}</strong>
+                {pedido.itens.map((item) => {
+                  return (
+                    <article key={item}>
+                      <strong>{item}</strong>
+                    </article>
+                  );
+                  })}
+              </article>
+            );
+          })}
+        </div>
       </div>
-    </div>
+    </>
   )
 }
 

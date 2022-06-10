@@ -1,3 +1,7 @@
+:root {
+  --main-bg-color: #3C3C3C;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -6,6 +10,7 @@
 body,html {
   height: 100vh;
   font-family: monospace;
+  background-color: var(--main-bg-color);
 }
 
 .container {
@@ -16,6 +21,7 @@ body,html {
   align-items: center;
   flex-direction: column;
   margin: 0 auto;
+  background-color: var(--main-bg-color);
 }
 
 .container-loading {
