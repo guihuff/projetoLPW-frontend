@@ -1,0 +1,36 @@
+.container.login {
+  display: flex;
+  height: calc(100vh - 60px - 210px);
+  align-items: center;
+  justify-content: center;
+}
+
+.container form {
+  max-width: 500px;
+  height: 450px;
+  width: 95%;
+
+  border: 1px solid var(--main-color-two);
+  filter: drop-shadow(4px 4px 4px #FFFFFF);
+  border-radius: 8px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.container form img {
+  width: 100px;
+  height: 100px;
+}
+
+.alert {
+  margin: 10px 5px;
+  color: #c55353;
+}
+.loading-container {
+  width: 40px;
+  height: 40px;
+  margin-top: 15px;
+}
