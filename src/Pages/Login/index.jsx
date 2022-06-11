@@ -4,8 +4,10 @@ import api from "../../Services/api";
 import { login } from "../../Services/auth";
 import { isAuthenticated } from './../../Services/auth'
 
+import './styles.css'
 import Loading from "../../Components/Loading";
 import Header from "../../Components/Header";
+import Logo from "../../assets/logo/logo.png"
 
 const Login = () => {
   const [loading, setLoading] = useState(true);
@@ -45,7 +47,9 @@ const Login = () => {
       <>
         <div className="container">
           <div className="container-loading">
-            <Loading />
+            <div class="loading-container">
+              <Loading />
+            </div>
           </div>
         </div>
       </>
@@ -55,9 +59,9 @@ const Login = () => {
   return (
     <>
       <Header />
-      <div className="container">
-        {noAuthenticate ? <h4>{noAuthenticate}</h4> : ""}
+      <div className="container login">
         <form onSubmit={handleLogin}>
+          <img src={Logo} alt="Logo" />
           <input
           type="email"
           placeholder="Endereço de e-mail"
@@ -72,7 +76,12 @@ const Login = () => {
           />
           <button type="submit">Entrar</button>
         </form>
-        {loading ? <Loading /> : ""}
+        {noAuthenticate ? <h3 class="alert">* {noAuthenticate}</h3> : ""}
+        {loading ? 
+          <div class="loading-container">
+            <Loading /> 
+          </div>
+        : ""}
       </div>
     </>
   )

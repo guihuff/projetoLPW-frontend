@@ -1,7 +1,9 @@
 :root {
   --main-bg-color: #3C3C3C;
-  --main-color-two: #FFDE5A;
+  --main-color-two: #ffde5a;
   --main-ft-color: #A4A4A4;
+  --main-bg-input: #F5F5F5;
+  --main-color-two-40: rgba(255, 222, 90, 0.4);
 }
 
 @import url('https://fonts.googleapis.com/css2?family=BIZ+UDGothic&display=swap');
@@ -34,4 +36,57 @@ body,html {
   flex-direction: column;
   justify-content: center;
   height: calc(100vh - 60px);
+}
+
+input {
+  background-color: var(--main-bg-input);
+  border: 1px solid #000000;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  height: 45px;
+  width: 95%;
+  max-width: 400px;
+  text-align: center;
+  font-family: 'BIZ UDGothic', 'Roboto', monospace;
+  font-size: 1.1rem;
+  padding-left: 5px;
+  padding-right: 5px;
+  transition: all 1s;
+}
+input:hover {
+  box-shadow: 0 0 0 0;
+  outline: 0;
+  border: 2px solid var(--main-color-two);
+  background-color: var(--main-color-two-40);
+}
+input:focus {
+  box-shadow: 0 0 0 0;
+  outline: 0;
+  border: 2px solid var(--main-color-two);
+  background-color: var(--main-color-two-40);
+  text-align: start;
+}
+
+button {
+  width: 120px;
+  height: 45px;
+  background-color: var(--main-color-two);
+  border-radius: 8px;
+  color: #000;
+  border: 1px solid #000000;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 1.2rem;
+
+  transition: all 0.2s;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #000;
+  color: var(--main-color-two);
 }
