@@ -1,63 +1,39 @@
-import React, { useEffect, useState } from "react";
-import api from "../../Services/api";
+import React from "react";
 
 import './styles.css';
-import Loading from "../../Components/Loading";
+
 import Header from "../../Components/Header";
-// URL DA API: /movie/now_playing?api_key=ab689815313a6cb4fd9a5df7af38599f&language=pt-BR
+
+import Logo from "./../../assets/logo/logo.png"
+import Whatsapp from "./../../assets/whatsapp-brands-yellow.svg"
+import House from "./../../assets/house-brands-yellow.svg"
+import Instagram from "./../../assets/instagram-brands-yellow.svg"
 
 const Home = () => {
-  const [pedidos, setPedidos] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    try{
-      async function loadPedidos() {
-        const response = await api.get('/order');
-        // console.log(response.data);
-
-        setPedidos(response.data);
-        
-        setLoading(false);
-      }
-
-      loadPedidos();
-    }catch (err){
-      console.log(err);
-    }
-
-  },[]);
-
-  if ( loading ) {
-    return(
-      <div className="loading">
-        <Loading />
-      </div>
-    );
-  }
 
   return (
-    <>
+  <>
     <Header />
-      <div className='container'>
-        <div className="lista-filmes">
-          {pedidos.map((pedido) => {
-            return (
-              <article key={pedido._id}>
-                <strong>{pedido.table}</strong>
-                {pedido.itens.map((item) => {
-                  return (
-                    <article key={item}>
-                      <strong>{item}</strong>
-                    </article>
-                  );
-                  })}
-              </article>
-            );
-          })}
+    <div className="banner">
+      <img id="logo" src={Logo} alt="logo" />
+    </div>
+    <div className='container'>
+      <div className="contact">
+        <div>
+          <img src={Whatsapp} />
+          <span>(51) 9****-****</span>
+        </div>
+        <div>
+          <img src={House} />
+          <span>Rua Visconde de Mauá, 1133<br /> Bairo Sander, Três Coroas - RS <br /> 95660-000</span>
+        </div>
+        <div>
+          <img src={Instagram} />
+          <span>@xisdozetc</span>
         </div>
       </div>
-    </>
+    </div>
+  </>
   )
 }
 
