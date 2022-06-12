@@ -21,7 +21,7 @@ const Header = () => {
     return (
       <>
         <li><Link className="nav-link" to=''>Cardapio</Link></li>
-        <li><Link className="nav-link" to=''>Pedidos</Link></li>
+        <li><Link className="nav-link" to='/orders'>Pedidos</Link></li>
         <li><Link className="nav-link" to=''>Cadastro</Link></li>
         <li><a className="nav-link" onClick={logout} href="/"><img src={Logout}></img></a></li>
       </>

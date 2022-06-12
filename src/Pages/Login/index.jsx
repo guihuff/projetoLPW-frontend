@@ -18,7 +18,7 @@ const Login = () => {
   useEffect(() => {
     if( isAuthenticated() ) {
       setLoading(false); 
-      navigate("/app"); 
+      navigate("/orders"); 
     }
     setLoading(false);
   }, [navigate]);
@@ -35,7 +35,7 @@ const Login = () => {
         const response = await api.post("/authenticate", { email, password });
         response.data.token ? login(response.data.token) : setNoAuthenticate("Acesso negado!"); 
         setLoading(false); 
-        navigate("/app");     
+        navigate("/orders");     
       } catch (err) {
         setLoading(false);
         setNoAuthenticate("Acesso negado!");
@@ -47,7 +47,7 @@ const Login = () => {
       <>
         <div className="container">
           <div className="container-loading">
-            <div class="loading-container">
+            <div className="loading-container">
               <Loading />
             </div>
           </div>
