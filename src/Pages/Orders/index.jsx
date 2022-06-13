@@ -88,7 +88,7 @@ const Orders = () => {
                 <span>Mesa {pedido.table}</span>
                 <div className="status-order">
                   <img src={pedido.confirmation ? Confirm : Stay} />
-                  <img src={pedido.isProgress ? Confirm : Stay} />
+                  <img src={pedido.inProgess ? Confirm : Stay} />
                   <img src={pedido.isFinish ? Confirm : Stay} />
                 </div>
               </Link>
