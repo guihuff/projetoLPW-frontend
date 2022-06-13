@@ -2,6 +2,8 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import api from "../../Services/api";
+import { getToken } from "../../Services/auth";
+import { toast } from "react-toastify";
 
 import "./styles.css";
 import Check from "../../assets/circle-check-solid.svg";
@@ -38,6 +40,23 @@ const OneOrder = () => {
     }
   }, [id]);
 
+  const handleDelete = async () => {
+    setLoading(true);
+
+    const headers = { 
+      'authorization': `Bearer ${getToken()}`,
+    };
+    try {
+      await api.delete(`order/${id}`, headers)
+      .then(() => toast.success('Deletado com sucesso'))
+      .catch((res) => toast.warn('Algo deu errado, tente logar novamente'));
+    }catch(err){
+      console.log(err);
+    } finally {
+      setLoading(false);
+    }
+  }
+
   if ( loading ) {
     return(
       <div className="container">
@@ -56,7 +75,7 @@ const OneOrder = () => {
         {pedido === undefined ? <strong>Algo deu errado!</strong> : null }
         <div className="title">
           <h1>Pedido</h1>
-          <img src={Trash} alt="deletar" />
+          <img src={Trash} alt="deletar" onClick={handleDelete}/>
         </div>
         <div className="box-order">
           <h2>Detalhes do pedido</h2>
@@ -72,7 +91,7 @@ const OneOrder = () => {
               return (
                 <article key={Math.random()}>
                   <ul>
-                    <li><span>{iten.name}</span><span>{iten.value}</span></li>
+                    <li><span>{iten.name}</span><span>{iten.value.toFixed(2)}</span></li>
                   </ul>
                 </article>
               )
@@ -98,13 +117,13 @@ const OneOrder = () => {
             <div className="status-button"> 
               {
                 !pedido.confirmation ? (
-                  <><span>Aceitar</span><button><img src={Check} /></button></>
+                  <><span>Aceitar</span><button className="btn"><img src={Check} /></button></>
                 ) : !pedido.inProgess ? (
-                  <><span>Começar</span><button><img src={Check} /></button></>
+                  <><span>Começar</span><button className="btn"><img src={Check} /></button></>
                 ) : pedido.inProgess && !pedido.isFinish ? (
-                  <><span>Entregar</span><button><img src={Check} /></button></>
+                  <><span>Entregar</span><button className="btn"><img src={Check} /></button></>
                 ) : !pedido.isPaid ? (
-                  <><span>Fechar</span><button><img src={Check} /></button></>
+                  <><span>Fechar</span><button className="btn"><img src={Check} /></button></>
                 ) : "Pedido já foi finalizado"
               }
             </div>

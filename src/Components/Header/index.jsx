@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { isAuthenticated, logout } from "../../Services/auth";
