@@ -51,6 +51,7 @@
 
 .nav-link {
   padding: 5px 10px;
+  height: 35px;
   color: var(--main-ft-color);
   text-decoration: none;
   font-size: 1.05rem;
@@ -72,4 +73,19 @@
   width: 25px;
   height: 25px;
   fill: var(--main-ft-color);
+}
+
+.sub-menu {
+  position: absolute;
+  top: 0;
+  right: 50px;
+  height: 60px;
+  width: 350px;
+  background-color: var(--main-bg-color);
+}
+
+.sub-menu button {
+  border: 0;
+  color: var(--main-color-two-40);
+  background-color: transparent;
 }

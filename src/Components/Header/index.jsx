@@ -9,6 +9,7 @@ import './styles.css'
 
 const Header = () => {
   const [authenticate, setAuthenticate] = useState(false);
+  const [submenu, setSubmenu] = useState(false);
 
   const EntrarNoSite = () => {
     return (
@@ -23,7 +24,9 @@ const Header = () => {
       <>
         <li><Link className="nav-link" to=''>Cardapio</Link></li>
         <li><Link className="nav-link" to='/orders'>Pedidos</Link></li>
-        <li><Link className="nav-link" to=''>Cadastro</Link></li>
+        <li>
+          <span className="nav-link" onClick={() => setSubmenu(true)}>Cadastrar &#10136;</span>
+        </li>
         <li><a className="nav-link" onClick={logout} href="/"><img src={Logout}></img></a></li>
       </>
     )
@@ -41,6 +44,14 @@ const Header = () => {
           <ul>
             {authenticate ? <SairDoSite /> : <EntrarNoSite />}
           </ul>
+          {!submenu ? "" : <>
+            <ul class="sub-menu">
+              <button className="nav-link" onClick={() => setSubmenu(false)}>X</button>
+              <Link className="nav-link" to='/registrar/produto'>Produto</Link>
+              <Link className="nav-link" to='/registrar-produto'>Categoria</Link>
+              <Link className="nav-link" to='/registrar-produto'>Usuário</Link>
+            </ul>
+          </>}
         </div>
       </nav>
     </header>
