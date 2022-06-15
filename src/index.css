@@ -116,3 +116,13 @@ select:hover {
   background-color: #000;
   color: var(--main-color-two);
 }
+
+.link-yellow {
+  color: var(--main-color-two);
+  padding: 10px 15px;
+  border-radius: 8px;
+  transition: all 1.5s;
+}
+.link-yellow:hover {
+  background-color: #000;
+}
