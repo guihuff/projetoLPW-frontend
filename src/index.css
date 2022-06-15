@@ -4,6 +4,7 @@
   --main-ft-color: #A4A4A4;
   --main-bg-input: #F5F5F5;
   --main-color-two-40: rgba(255, 222, 90, 0.4);
+  --bg-table: #5B5B5B;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=BIZ+UDGothic&display=swap');
@@ -18,7 +19,10 @@ body,html {
   font-family: 'BIZ UDGothic', 'Roboto', monospace;
   background-color: var(--main-bg-color);
 }
-
+ul {
+  list-style: none;
+  padding: 0;
+}
 .container {
   display: flex;
   max-width: 1200px;
@@ -67,7 +71,29 @@ input:focus {
   text-align: start;
 }
 
-button {
+select {
+  background-color: var(--main-bg-input);
+  border: 1px solid #000000;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  height: 45px;
+  width: 95%;
+  max-width: 400px;
+  text-align: center;
+  font-family: 'BIZ UDGothic', 'Roboto', monospace;
+  font-size: 1.1rem;
+  padding-left: 5px;
+  padding-right: 5px;
+  transition: all 1s;
+}
+select:hover {
+  box-shadow: 0 0 0 0;
+  outline: 0;
+  border: 2px solid var(--main-color-two);
+  background-color: var(--main-color-two-40);
+}
+
+.btn {
   width: 120px;
   height: 45px;
   background-color: var(--main-color-two);
@@ -86,7 +112,17 @@ button {
   transition: all 0.2s;
   cursor: pointer;
 }
-button:hover {
+.btn:hover {
   background-color: #000;
   color: var(--main-color-two);
+}
+
+.link-yellow {
+  color: var(--main-color-two);
+  padding: 10px 15px;
+  border-radius: 8px;
+  transition: all 1.5s;
+}
+.link-yellow:hover {
+  background-color: #000;
 }

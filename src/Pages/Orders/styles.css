@@ -1,0 +1,87 @@
+.orders {
+  margin-top: 90px;
+}
+
+.orders .title {
+  max-width: 700px;
+  width: 100%;
+  display: flex;
+  margin: 10px 0;
+}
+.orders .title h1 {
+  color: var(--main-color-two);
+  font-weight: 400;
+}
+
+.orders .title img {
+  margin-left: 30px;
+  cursor: pointer;
+}
+
+.orders .title img:hover {
+  animation: is-roating 2.5s infinite;
+}
+
+@keyframes is-roating {
+    to {
+        transform: rotate(1turn);
+    }
+}
+
+.orders .header-table {
+  max-width: 700px;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(91, 91, 91, 0.3);
+  border-radius: 8px;
+  padding: 0 35px;
+  color: var(--main-ft-color);
+  opacity: 0.6;
+  margin: 10px 0;
+}
+
+.orders .header-table h2 {
+  font-weight: 400;
+}
+.orders .header-table span {
+  margin: 0 6px;
+}
+
+.orders .line-table {
+  max-width: 700px;
+  width: 100%;
+  height: 60px;
+  margin: 5px 0;
+  background: var(--bg-table);
+  border-radius: 8px;
+  border: 1px solid #000000;
+  transition: all 1s;
+}
+
+.orders .line-table a {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 35px;
+  color: var(--main-bg-input);
+  text-decoration: none;
+}
+.orders .line-table:hover {
+  border: 2px solid var(--main-color-two);
+}
+
+.orders .line-table span {
+  font-size: 1.1rem;
+}
+
+.orders .line-table .status-order {
+  width: 200px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}

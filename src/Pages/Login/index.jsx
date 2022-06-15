@@ -8,6 +8,7 @@ import './styles.css'
 import Loading from "../../Components/Loading";
 import Header from "../../Components/Header";
 import Logo from "../../assets/logo/logo.png"
+import { toast } from "react-toastify";
 
 const Login = () => {
   const [loading, setLoading] = useState(true);
@@ -18,7 +19,7 @@ const Login = () => {
   useEffect(() => {
     if( isAuthenticated() ) {
       setLoading(false); 
-      navigate("/app"); 
+      navigate("/orders"); 
     }
     setLoading(false);
   }, [navigate]);
@@ -32,10 +33,12 @@ const Login = () => {
       setNoAuthenticate("Preencha o e-mail e senha para continuar!");
     } else {
       try {
-        const response = await api.post("/authenticate", { email, password });
+        const response = await api.post("/authenticate", { email, password })
+          .catch(() => toast.error("Acesso Negado!"));
         response.data.token ? login(response.data.token) : setNoAuthenticate("Acesso negado!"); 
-        setLoading(false); 
-        navigate("/app");     
+        setLoading(false);
+        toast.success("Bem vindo!")
+        navigate("/orders");     
       } catch (err) {
         setLoading(false);
         setNoAuthenticate("Acesso negado!");
@@ -47,7 +50,7 @@ const Login = () => {
       <>
         <div className="container">
           <div className="container-loading">
-            <div class="loading-container">
+            <div className="loading-container">
               <Loading />
             </div>
           </div>
@@ -74,11 +77,11 @@ const Login = () => {
           value={data.password}
           onChange={(e) => {setData({email: data.email, password: e.target.value})}}
           />
-          <button type="submit">Entrar</button>
+          <button className="btn" type="submit">Entrar</button>
         </form>
-        {noAuthenticate ? <h3 class="alert">* {noAuthenticate}</h3> : ""}
+        {noAuthenticate ? <h3 className="alert">* {noAuthenticate}</h3> : ""}
         {loading ? 
-          <div class="loading-container">
+          <div className="loading-container">
             <Loading /> 
           </div>
         : ""}
