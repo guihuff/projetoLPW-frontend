@@ -45,7 +45,7 @@ const Header = () => {
             {authenticate ? <SairDoSite /> : <EntrarNoSite />}
           </ul>
           {!submenu ? "" : <>
-            <ul class="sub-menu">
+            <ul className="sub-menu">
               <button className="nav-link" onClick={() => setSubmenu(false)}>X</button>
               <Link className="nav-link" to='/registrar/produto'>Produto</Link>
               <Link className="nav-link" to='/registrar-produto'>Categoria</Link>
