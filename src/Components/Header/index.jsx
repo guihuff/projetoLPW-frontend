@@ -48,7 +48,7 @@ const Header = () => {
             <ul className="sub-menu">
               <button className="nav-link" onClick={() => setSubmenu(false)}>X</button>
               <Link className="nav-link" to='/registrar/produto'>Produto</Link>
-              <Link className="nav-link" to='/registrar-produto'>Categoria</Link>
+              <Link className="nav-link" to='/registrar/categoria'>Categoria</Link>
               <Link className="nav-link" to='/registrar-produto'>Usuário</Link>
             </ul>
           </>}

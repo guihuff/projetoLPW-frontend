@@ -7,6 +7,8 @@ import Orders from "./Pages/Orders";
 import OneOrder from "./Pages/OneOrder";
 import RegistrationProduct from "./Pages/RegistrationProduct";
 import UpdateProduct from "./Pages/UpdateProduct";
+import RegistrationCategory from "./Pages/RegistrationCategory";
+import UpdateCategory from "./Pages/UpdateCategory";
 
 const PrivateRoute = ({ children, redirectTo }) => {
   return isAuthenticated() ? children : <Navigate to={redirectTo}/>
@@ -22,6 +24,8 @@ const RouterApp = () => {
           <Route path="/order/:id" element={<PrivateRoute redirectTo={"/login"}><OneOrder /></PrivateRoute>} />
           <Route path="/registrar/produto" element={<PrivateRoute redirectTo={"/login"}><RegistrationProduct /></PrivateRoute>} />
           <Route path="/atualizar/produto" element={<PrivateRoute redirectTo={"/login"}><UpdateProduct /></PrivateRoute>} />
+          <Route path="/registrar/categoria" element={<PrivateRoute redirectTo={"/login"}><RegistrationCategory /></PrivateRoute>} />
+          <Route path="/atualizar/categoria" element={<PrivateRoute redirectTo={"/login"}><UpdateCategory /></PrivateRoute>} />
 
           <Route path="*" element={<h1>Page not found</h1>} />
         </Routes> 
