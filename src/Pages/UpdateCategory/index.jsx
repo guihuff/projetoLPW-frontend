@@ -127,7 +127,7 @@ const UpdateCategory = () => {
           </div>
           <form onSubmit={handleUpdate}>
             <label>Category:
-                <select id='produto' value={id} required 
+                <select id='categoria' value={id} required 
                     onChange={e => {
                     setId(e.target.value);
                     }}
