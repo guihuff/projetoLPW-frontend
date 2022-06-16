@@ -1,0 +1,58 @@
+.users {
+    margin-top: 90px;
+}
+  
+.users .title {
+    margin-bottom: 10px;
+    align-self: center;
+}
+
+.box-registration {
+    width: 100%;
+    max-width: 700px;
+    min-height: 500px;
+    background-color: var(--bg-table);
+    border: 2px solid var(--main-color-two);
+    border-radius: 8px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.users input {
+    text-align: start;
+    width: 100%;
+    max-width: 100%;
+    padding: 3px 10px;
+    margin-top: 5px;
+}
+.users select {
+    width: 100%;
+    max-width: 100%;
+    padding: 3px 10px;
+}
+
+.users form {
+    display: flex;
+    flex-direction: column;
+}
+
+.users form label {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 10px 0;
+    font-size: 1rem;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.users button {
+    align-self: center;
+    margin-top: 10px;
+}

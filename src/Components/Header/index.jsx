@@ -22,7 +22,7 @@ const Header = () => {
   const SairDoSite = () => {
     return (
       <>
-        <li><Link className="nav-link" to=''>Cardapio</Link></li>
+        <li><Link className="nav-link" to='/lista'>Cardapio</Link></li>
         <li><Link className="nav-link" to='/orders'>Pedidos</Link></li>
         <li>
           <span className="nav-link" onClick={() => setSubmenu(true)}>Cadastrar &#10136;</span>
@@ -49,7 +49,7 @@ const Header = () => {
               <button className="nav-link" onClick={() => setSubmenu(false)}>X</button>
               <Link className="nav-link" to='/registrar/produto'>Produto</Link>
               <Link className="nav-link" to='/registrar/categoria'>Categoria</Link>
-              <Link className="nav-link" to='/registrar-produto'>Usuário</Link>
+              <Link className="nav-link" to='/registrar/usuario'>Usuário</Link>
             </ul>
           </>}
         </div>
