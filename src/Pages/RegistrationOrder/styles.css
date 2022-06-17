@@ -1,0 +1,26 @@
+.newOrder {
+  margin-top: 90px;
+}
+
+.newOrder .title h2 {
+  text-align: center;
+}
+
+.newOrder form {
+  margin: 10px 0;
+}
+
+.newOrder form label {
+    margin: 10px 0;
+  }
+
+.newOrder form .lineOne {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.newOrder form #tableNumber {
+  width: 65px;
+}
