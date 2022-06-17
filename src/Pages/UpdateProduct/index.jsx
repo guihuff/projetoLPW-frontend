@@ -101,23 +101,27 @@ const UpdateProduct = () => {
 
   const handleDelete = async (e) => {
     e.preventDefault();
-    if( window.confirm(`Você tem certeza disso? O produto ${name} será excluido`)){
-      setLoading(true);
-      const headers = { 
-        'authorization': `Bearer ${getToken()}`,
-      };
-      try {
-        await api.delete(`product/${id}`, headers)
-        .then(() => {toast.success(`O produto ${name}, foi deletado com sucesso`);})
-        .catch((res) => toast.error(`Algo deu errado, tente entrar novamente`));
-      }catch(err){
-        console.log(err);
-      } finally {
-        setLoading(false);
-        clear();
-        loadProducts();
-      }
-    }
+    toast.info("Não é possivel deletar o produto ainda, pode haver pedidos com esse produto.", {
+      position: "top-center",
+      autoClose: 5000,
+    });
+    // if( window.confirm(`Você tem certeza disso? O produto ${name} será excluido`)){
+    //   setLoading(true);
+    //   const headers = { 
+    //     'authorization': `Bearer ${getToken()}`,
+    //   };
+    //   try {
+    //     await api.delete(`product/${id}`, headers)
+    //     .then(() => {toast.success(`O produto ${name}, foi deletado com sucesso`);})
+    //     .catch((res) => toast.error(`Algo deu errado, tente entrar novamente`));
+    //   }catch(err){
+    //     console.log(err);
+    //   } finally {
+    //     setLoading(false);
+    //     clear();
+    //     loadProducts();
+    //   }
+    // }
   }
 
   if ( loading ) {
