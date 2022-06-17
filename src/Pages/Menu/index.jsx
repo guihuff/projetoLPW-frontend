@@ -13,6 +13,8 @@ import { Splide, SplideSlide } from '@splidejs/react-splide';
 const Menu = () => {
   const [loading, setLoading] = useState(true);
   const [categorys, setCategorys] = useState([]);
+  const [listProduct, setListProduct] = useState(undefined);
+  const [loadItens, setLoadItens] = useState(false);
 
   const loadCategory = () => {
     setLoading(true);
@@ -39,6 +41,20 @@ const Menu = () => {
     }
   }, []);
 
+  const handleGetProducts = (id) => {
+    setLoadItens(true);
+    try{
+      async function load() {
+        const response = await api.get(`/productCategory/${id}`);
+        setListProduct(response.data);
+      }
+      load();
+    } catch(err) {
+      toast.error("Ocorreu um erro");
+    } finally {
+      setLoadItens(false);
+    }
+  }
 
   if ( loading ) {
     return(
@@ -51,7 +67,6 @@ const Menu = () => {
       </div>
     );
   }
-  console.log(categorys)
   return (
     <>
       <Header />
@@ -60,7 +75,7 @@ const Menu = () => {
           options={{
             type: 'slide',
             rewind: true,
-            perMove: 1,
+            perMove: 4,
             gap: 6,
             autoWidth: true,
             width: 1200,
@@ -70,22 +85,56 @@ const Menu = () => {
               arrows: 'splide__arrows your-class-arrows',
               prev  : 'splide__arrow--prev your-class-prev',
 		          next  : 'splide__arrow--next your-class-next',
+            },
+            breakpoints: {
+              1000: {
+                perMove: 3,
+              },
+              900: {
+                perMove: 2,
+              },
+              700: {
+                perMove: 1,
+              }
             }
           }}
         >
           {categorys.map((item) => {
             return (
               <SplideSlide key={item._id}>
-                <div className="card">
+                <div className="card" onClick={() => handleGetProducts(item._id)}>
                   <img src={item.imageURL} alt={item.name}/>
                   <h4>{item.name}</h4>
                 </div>
               </SplideSlide>
           )})}
         </Splide>
-        <div className="margin">
-          
+        <div className="margin"></div>
+        <div className="boxItens">
+          {loadItens ? (
+            <div className="loading-container">
+              <Loading />
+            </div> ) : (
+              <div className="listItems">
+                {listProduct === undefined ? <h3>Selecione uma Categoria</h3> : (
+                  <ul>
+                    {listProduct.map((item) => {
+                      return (
+                        <li key={item._id}>
+                          <div>
+                            <h4>{item.name}</h4>
+                            <p>{item.description}</p>
+                          </div>
+                          <h4>Valor: {item.value.toFixed(2)}</h4>
+                        </li>
+                      )
+                    })}
+                  </ul>
+                )}
+              </div>
+            )}
         </div>
+
       </div>
     </>
   )
