@@ -83,7 +83,7 @@
 .order-details .box-order .product-container ul {
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: flex-start;
 }
 .order-details .box-order .product-container ul li {
   display: flex;

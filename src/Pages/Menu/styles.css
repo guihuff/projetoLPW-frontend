@@ -1,0 +1,47 @@
+.menu {
+  margin-top: 50px;
+}
+.menu.container {
+  align-items: stretch;
+}
+
+.menu .card {
+  background-color: var(--main-bg-input);
+  height: 320px;
+  width: 240px;
+  border-radius: 8px;
+  margin: 0 10px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.menu .card img {
+    height: 280px;
+    width: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.menu .card h4 {
+  text-align: center;
+  padding: 10px;
+}
+
+.menu .your-class-arrows {
+  position: absolute;
+  bottom: -30px;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.menu .your-class-prev {
+  left: 100px;
+}
+.menu .your-class-next {
+  right: 100px;
+}
