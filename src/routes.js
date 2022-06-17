@@ -11,6 +11,7 @@ import RegistrationCategory from "./Pages/RegistrationCategory";
 import UpdateCategory from "./Pages/UpdateCategory";
 import RegistrationUser from "./Pages/RegistrationUser";
 import UpdateUser from "./Pages/UpdateUser";
+import Menu from "./Pages/Menu";
 
 const PrivateRoute = ({ children, redirectTo }) => {
   return isAuthenticated() ? children : <Navigate to={redirectTo}/>
@@ -30,6 +31,7 @@ const RouterApp = () => {
           <Route path="/atualizar/categoria" element={<PrivateRoute redirectTo={"/login"}><UpdateCategory /></PrivateRoute>} />
           <Route path="/registrar/usuario" element={<PrivateRoute redirectTo={"/login"}><RegistrationUser /></PrivateRoute>} />
           <Route path="/atualizar/usuario" element={<PrivateRoute redirectTo={"/login"}><UpdateUser /></PrivateRoute>} />
+          <Route path="/menu" element={<Menu />} />
 
 
           <Route path="*" element={<h1>Page not found</h1>} />
