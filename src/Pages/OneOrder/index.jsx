@@ -119,6 +119,24 @@ const OneOrder = () => {
       setLoading(false);
     }
   }
+  const handleFinish = async () => {
+    setLoading(true);
+    const headers = { 
+      'authorization': `Bearer ${getToken()}`,
+    };
+    try {
+      await api.patch(`order/${id}`, {isPaid: true} , headers)
+      .then(() => {
+        toast.success(`O Pedido Mesa ${pedido.table}, Foi fechado`);
+        navigate("/pedido");
+      })
+      .catch((res) => toast.error(`Algo deu errado, tente entrar novamente`));
+    }catch(err){
+      console.log(err);
+    } finally {
+      setLoading(false);
+    }
+  }
 
   if ( loading ) {
     return(
@@ -186,7 +204,7 @@ const OneOrder = () => {
                 ) : pedido.inProgess && !pedido.isFinish ? (
                   <><span>Entregar</span><button className="btn" onClick={handleEntregar}><img src={Check} /></button></>
                 ) : !pedido.isPaid ? (
-                  <><span>Fechar</span><button className="btn"><img src={Check} /></button></>
+                  <><span>Fechar</span><button className="btn" onClick={handleFinish}><img src={Check} /></button></>
                 ) : "Pedido já foi finalizado"
               }
             </div>
