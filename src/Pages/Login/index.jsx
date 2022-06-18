@@ -38,7 +38,7 @@ const Login = () => {
         response.data.token ? login(response.data.token) : setNoAuthenticate("Acesso negado!"); 
         setLoading(false);
         toast.success("Bem vindo!")
-        navigate("/orders");     
+        navigate("/pedido");     
       } catch (err) {
         setLoading(false);
         setNoAuthenticate("Acesso negado!");

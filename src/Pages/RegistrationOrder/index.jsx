@@ -84,7 +84,7 @@ const RegistrationOrder = () => {
       itens.push(productsSelect[i].item._id);
     }
     
-    if (table !== "" && productsSelect !== []){
+    if (table !== "" && itens.length !== 0){
       setLoading(true);
       await api.post('/order',{
         table,
@@ -94,10 +94,12 @@ const RegistrationOrder = () => {
       .then(() => toast.success("Pedido Cadastrado"))
       .catch((res) => {
         toast.error("Erro ao cadastrar, tente acessar novamente sua conta!");
-      })
+      });
+      setLoading(false);
+      navigate("/pedido"); 
+    } else {
+      toast.info("Selecione algum produto")
     }
-    setLoading(false);
-    navigate("/pedido");
   }
 
 
