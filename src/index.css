@@ -33,7 +33,9 @@ ul {
   margin: 0 auto;
   background-color: var(--main-bg-color);
 }
-
+.margin {
+  margin: 40px 0;
+}
 .container-loading {
   display: flex;
   align-items: center;

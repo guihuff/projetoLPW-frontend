@@ -68,8 +68,11 @@ const Orders = () => {
       <Header />
       <div className="container orders">
         <div className="title">
-          <h1>Pedidos</h1>
-          <img src={Rotate} alt="recaregar" onClick={handlePedidos}/>
+          <div>
+            <h1>Pedidos</h1>
+            <img src={Rotate} alt="recaregar" onClick={handlePedidos}/>
+          </div>
+          <Link className="btn" to="/registrar/pedido" alt="Novo" >+ Novo</Link>
         </div>
         <div className="header-table">
           <div>
@@ -84,7 +87,7 @@ const Orders = () => {
         {pedidosOpen.map((pedido) => {
           return(
             <article key={pedido._id} className="line-table">
-              <Link to={`/order/${pedido._id}`}>
+              <Link to={`/pedido/${pedido._id}`}>
                 <span>Mesa {pedido.table}</span>
                 <div className="status-order">
                   <img src={pedido.confirmation ? Confirm : Stay} />

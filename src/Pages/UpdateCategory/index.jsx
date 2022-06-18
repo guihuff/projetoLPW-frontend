@@ -10,16 +10,14 @@ import { toast } from "react-toastify";
 import Loading from "../../Components/Loading";
 import { Link } from "react-router-dom";
 
-const UpdateProduct = () => {
+const UpdateCategory = () => {
+  const [loading, setLoading] = useState(false);
   const [categorys, setCategorys] = useState([]);
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
 
   const [id, setId] = useState("");
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
-  const [value, setValue] = useState(0);
-  const [categoryValue, setCategoryValue] = useState("");
+  const [imageURL, setImageURL] = useState("");
 
   const [headers, setHeaders] = useState({});
 
@@ -27,9 +25,9 @@ const UpdateProduct = () => {
     setId("");
     setName("");
     setDescription("");
-    setCategoryValue("");
-    setValue(0);
+    setImageURL("");
   }
+
   const loadCategory = () => {
     setLoading(true);
     try{
@@ -45,34 +43,17 @@ const UpdateProduct = () => {
     }
   }
 
-  const loadProducts = () => {
-    setLoading(true);
-    try{
-      async function load() {
-        const response = await api.get('/product');
-        setProducts(response.data);
-      }
-      load();
-    } catch(err) {
-      toast.error("Ocorreu um erro");
-    } finally {
-      setLoading(false);
-    }
-  }
-
   const setValues = () => {
-    const item = products.find(item => item._id === id);
+    const item = categorys.find(item => item._id === id);
     setName(item.name);
     setDescription(item.description);
-    setCategoryValue(item.category);
-    setValue(item.value);
+    setImageURL(item.imageURL);
   }
 
   useEffect(() => {
     setHeaders({ 'authorization': `Bearer ${getToken()}` });
     try{
       loadCategory();
-      loadProducts();
     } catch {
       toast.error("Ocorreu um erro");
     }
@@ -80,20 +61,19 @@ const UpdateProduct = () => {
 
   const handleUpdate = async (e) => {
     e.preventDefault();
-    if (name !== "" && description !== "" && categoryValue !== "" && value !== 0 ){
+    if (id !== "" && name !== "" && description !== "" && imageURL !== "" ){
       setLoading(true);
-      await api.patch(`/product/${id}`,{
+      await api.patch(`/category/${id}`,{
         name: name,
         description: description,
-        category: categoryValue,
-        value: value
+        imageURL: imageURL
       }, headers )
       .then(() => toast.success("Produto Atualizado"))
       .catch((res) => {
         toast.error("Erro ao cadastrar, tente acessar novamente sua conta!");
         console.log(res);
       })
-      loadProducts();
+      loadCategory();
       clear();
       setLoading(false);
     }
@@ -101,17 +81,18 @@ const UpdateProduct = () => {
 
   const handleDelete = async (e) => {
     e.preventDefault();
-    toast.info("Não é possivel deletar o produto ainda, pode haver pedidos com esse produto.", {
+    toast.info("Não é possivel deletar categorias ainda, pode haver produtos com essa categoria.", {
       position: "top-center",
       autoClose: 5000,
     });
+    return
     // if( window.confirm(`Você tem certeza disso? O produto ${name} será excluido`)){
     //   setLoading(true);
     //   const headers = { 
     //     'authorization': `Bearer ${getToken()}`,
     //   };
     //   try {
-    //     await api.delete(`product/${id}`, headers)
+    //     await api.delete(`category/${id}`, headers)
     //     .then(() => {toast.success(`O produto ${name}, foi deletado com sucesso`);})
     //     .catch((res) => toast.error(`Algo deu errado, tente entrar novamente`));
     //   }catch(err){
@@ -119,7 +100,7 @@ const UpdateProduct = () => {
     //   } finally {
     //     setLoading(false);
     //     clear();
-    //     loadProducts();
+    //     loadCategory();
     //   }
     // }
   }
@@ -139,31 +120,31 @@ const UpdateProduct = () => {
   return (
     <>
       <Header />
-      <div className="container product">
+      <div className="container category">
         <div className="box-registration">
           <div className="title">
-            <h2>Atualizar Produto</h2>
+            <h2>Atualizar Categoria</h2>
           </div>
           <form onSubmit={handleUpdate}>
-            <label>Produto:
-              <select id='produto' value={id} required 
-                onChange={e => {
-                  setId(e.target.value);
-                  }}
-                onBlur={
-                  () => {
-                    id !== "" ? setValues() : console.log(id)
-                  }
-                } 
-              >
-                <option value=""> Selecione um produto </option>
-                {products.map((item) => {
-                  return (
-                    <option key={item._id} value={item._id}>{`${item.name} : ${item._id}`}</option>
-                  )
-                })}
-              </select>
-            </label>
+            <label>Category:
+                <select id='categoria' value={id} required 
+                    onChange={e => {
+                    setId(e.target.value);
+                    }}
+                    onBlur={
+                    () => {
+                        id !== "" ? setValues() : console.log(id)
+                    }
+                    } 
+                >
+                    <option value=""> Selecione uma Categoria </option>
+                    {categorys.map((item) => {
+                    return (
+                        <option key={item._id} value={item._id}>{`${item.name} : ${item._id}`}</option>
+                    )
+                    })}
+                </select>
+              </label>
             <label>Nome:
               <input type='text' required
               value={name} 
@@ -176,20 +157,10 @@ const UpdateProduct = () => {
               onChange={(e) => setDescription(e.target.value)}
               />
             </label>
-            <label>Categoria:
-              <select id='categoria' value={categoryValue} required onChange={e => setCategoryValue(e.target.value)}>
-                <option value=""> Selecione a Categoria </option>
-                {categorys.map((category) => {
-                  return (
-                    <option key={category._id} value={category._id}>{category.name}</option>
-                  )
-                })}
-              </select>
-            </label>
-            <label>Valor:
-              <input type='number' step="0.010" min={0} required
-              value={value} 
-              onChange={(e) => setValue(e.target.value)}
+            <label>URL da Imagem:
+              <input type='text' required
+              value={imageURL} 
+              onChange={(e) => setImageURL(e.target.value)}
               />
             </label>
             <div className="containerBtn">
@@ -198,10 +169,10 @@ const UpdateProduct = () => {
             </div>
           </form>
         </div>
-        <Link className="link-yellow" to='/registrar/produto' >Novo produto</Link>
+        <Link className="link-yellow" to='/registrar/categoria' >Nova Categoria</Link>
       </div>
     </>
   )
 }
 
-export default UpdateProduct;
+export default UpdateCategory;

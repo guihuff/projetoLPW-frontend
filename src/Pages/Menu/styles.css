@@ -1,0 +1,78 @@
+.menu {
+  margin-top: 50px;
+}
+.menu.container {
+  align-items: stretch;
+}
+
+.menu .card {
+  /* background-color: var(--main-bg-input); */
+  height: 320px;
+  width: 240px;
+  border-radius: 8px;
+  margin: 0 10px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  cursor: pointer;
+  transition: all 1s;
+}
+
+.menu .card:hover {
+  transform: scale(0.9);
+}
+
+.menu .card img {
+    height: 280px;
+    width: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.menu .card h4 {
+  text-align: center;
+  padding: 10px;
+}
+
+.menu .your-class-arrows {
+  position: absolute;
+  bottom: -30px;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.menu .your-class-prev {
+  left: 100px;
+}
+.menu .your-class-next {
+  right: 100px;
+}
+
+.menu .boxItens {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.menu .listItems {
+  width: 100%;
+  border-radius: 8px;
+  border: 2px solid var(--main-color-two);
+  padding: 10px;
+}
+
+.menu .listItems h3 {
+  text-align: center;
+}
+
+.menu .listItems ul li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--main-ft-color);
+}

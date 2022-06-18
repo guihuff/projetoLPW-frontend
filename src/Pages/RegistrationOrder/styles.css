@@ -1,0 +1,136 @@
+.newOrder {
+  margin-top: 20px;
+}
+
+.newOrder .title h2 {
+  text-align: center;
+}
+
+.newOrder form {
+  margin: 10px 0;
+}
+
+.newOrder form label {
+    margin: 10px 0;
+  }
+
+.newOrder form .lineOne {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.newOrder form #tableNumber {
+  width: 65px;
+}
+
+.newOrder .boxCetegorys {
+  height: 120px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  overflow-x: auto;
+  border-bottom: 1px solid var(--main-ft-color);
+}
+
+.newOrder .boxCetegorys::-webkit-scrollbar {
+  height: 10px;
+}
+
+.newOrder .boxCetegorys::-webkit-scrollbar-thumb {
+  background-color: var(--main-color-two);    /* color of the scroll thumb */
+  border-radius: 8px;       /* roundness of the scroll thumb */
+  border: 1px solid var(--main-ft-color);  /* creates padding around scroll thumb */
+}
+.newOrder .boxCetegorys::-webkit-scrollbar-track {
+  background-color: var(--main-ft-color);
+}
+
+.newOrder .boxCetegorys div {
+  padding: 15px 20px;
+  border-radius: 8px;
+  border: 1px solid var(--main-color-two);
+  margin: 3px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 100px;
+  width: 100px;
+  height: 100px;
+  margin: 0 3px;
+  cursor: pointer;
+}
+
+.newOrder .boxCetegorys img {
+  width: 25px;
+  height: 25px;
+}
+
+.newOrder .listItems {
+  margin-top: 20px;
+  min-height: 300px;
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  border-bottom: 1px solid var(--main-ft-color);
+}
+
+.newOrder .listItems ul {
+  width: 100%;
+}
+
+.newOrder .listItems li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid var(--main-ft-color);
+}
+
+.newOrder .listItems img {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}
+
+.newOrder .listOrder {
+  margin-top: 20px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--main-ft-color);
+}
+
+.newOrder .listOrder h3 {
+  text-align: center;
+}
+
+.newOrder .listOrder  li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid var(--main-ft-color);
+}
+
+.newOrder .listOrder img {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}
+
+.newOrder .finish {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.newOrder .finish .total {
+  display: flex;
+  padding: 8px;
+}
