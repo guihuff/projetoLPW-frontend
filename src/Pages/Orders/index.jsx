@@ -87,7 +87,7 @@ const Orders = () => {
         {pedidosOpen.map((pedido) => {
           return(
             <article key={pedido._id} className="line-table">
-              <Link to={`/order/${pedido._id}`}>
+              <Link to={`/pedido/${pedido._id}`}>
                 <span>Mesa {pedido.table}</span>
                 <div className="status-order">
                   <img src={pedido.confirmation ? Confirm : Stay} />

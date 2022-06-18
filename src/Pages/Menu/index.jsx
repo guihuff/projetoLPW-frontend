@@ -125,7 +125,7 @@ const Menu = () => {
                             <h4>{item.name}</h4>
                             <p>{item.description}</p>
                           </div>
-                          <h4>Valor: {item.value.toFixed(2)}</h4>
+                          <h4>Valor: R$ {item.value.toFixed(2)}</h4>
                         </li>
                       )
                     })}

@@ -24,8 +24,8 @@ const RouterApp = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/orders" element={<PrivateRoute redirectTo={"/login"}><Orders /></PrivateRoute>} />
-          <Route path="/order/:id" element={<PrivateRoute redirectTo={"/login"}><OneOrder /></PrivateRoute>} />
+          <Route path="/pedido" element={<PrivateRoute redirectTo={"/login"}><Orders /></PrivateRoute>} />
+          <Route path="/pedido/:id" element={<PrivateRoute redirectTo={"/login"}><OneOrder /></PrivateRoute>} />
           <Route path="/registrar/pedido" element={<PrivateRoute redirectTo={"/login"}><RegistrationOrder /></PrivateRoute>} />
           <Route path="/registrar/produto" element={<PrivateRoute redirectTo={"/login"}><RegistrationProduct /></PrivateRoute>} />
           <Route path="/atualizar/produto" element={<PrivateRoute redirectTo={"/login"}><UpdateProduct /></PrivateRoute>} />
