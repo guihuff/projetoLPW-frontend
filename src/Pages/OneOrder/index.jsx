@@ -49,7 +49,7 @@ const OneOrder = () => {
       };
       try {
         await api.delete(`order/${id}`, headers)
-        .then(() => {toast.success(`Pedido Mesa ${pedido.table}, deletado com sucesso`); navigate("/orders");})
+        .then(() => {toast.success(`Pedido Mesa ${pedido.table}, deletado com sucesso`); navigate("/pedido");})
         .catch((res) => toast.error(`Algo deu errado, tente entrar novamente`));
       }catch(err){
         console.log(err);
