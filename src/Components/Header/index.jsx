@@ -25,7 +25,7 @@ const Header = () => {
         <li><Link className="nav-link" to='/menu'>Cardapio</Link></li>
         <li><Link className="nav-link" to='/pedido'>Pedidos</Link></li>
         <li>
-          <span className="nav-link" onClick={() => setSubmenu(true)}>Cadastrar &#10136;</span>
+          <span className="nav-link" onClick={() => setSubmenu(true)}>Cadastrar</span>
         </li>
         <li><a className="nav-link" onClick={logout} href="/"><img src={Logout}></img></a></li>
       </>
