@@ -1,70 +1,61 @@
-# Getting Started with Create React App
+# Lancheria - Interface de Usuário para Sistema de Pedidos
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este é um projeto de interface de usuário (UI) para um sistema de pedidos de uma lancheria. A interface foi desenvolvida para facilitar a interação dos garçons com o sistema, permitindo a visualização e seleção de itens do cardápio, personalização de pedidos e finalização da compra.
 
-## Available Scripts
+## Funcionalidades
 
-In the project directory, you can run:
+- Visualização do cardápio completo da lancheria, incluindo categorias de itens.
+- Seleção de itens do cardápio, com opções de personalização, como tamanho, ingredientes extras, etc.
+- Adição de itens ao carrinho de compras, com a possibilidade de ajustar as quantidades.
+- Cálculo automático do valor total dos pedidos no carrinho.
+- Finalização da compra.
+- Exibição de pedidos, com detalhes e status de cada pedido.
 
-### `npm start`
+## Tecnologias Utilizadas
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+A interface de usuário foi desenvolvida utilizando as seguintes tecnologias:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- React: Biblioteca JavaScript para construção de interfaces interativas.
+- CSS: Estilização personalizada para criar um layout atraente e responsivo.
 
-### `npm test`
+## Como Utilizar a Interface
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Para utilizar a interface em sua máquina local, siga as instruções abaixo:
 
-### `npm run build`
+1. Certifique-se de ter o Node.js instalado em sua máquina. Você pode baixá-lo em [https://nodejs.org](https://nodejs.org).
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. Clone este repositório para o seu ambiente de desenvolvimento:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+   ```
+   git clone https://github.com/seu-usuario/nome-do-repositorio.git
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. Acesse o diretório do projeto:
 
-### `npm run eject`
+   ```
+   cd nome-do-repositorio
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+4. Instale as dependências do projeto:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+   ```
+   yarn
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+5. Inicie a aplicação:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+   ```
+   yarn dev
+   ```
 
-## Learn More
+## Personalização
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Você pode personalizar a interface de acordo com as necessidades da lancheria.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Contribuição
 
-### Code Splitting
+Sinta-se à vontade para contribuir com melhorias para este projeto. Se você encontrou um bug, tem uma sugestão de funcionalidade ou deseja adicionar uma nova feature, abra uma [issue](https://github.com/seu-usuario/nome-do-repositorio/issues) ou envie um pull request com suas alterações.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Licença
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Esta interface está licenciada sob a [MIT License](https://opensource.org/licenses/MIT).
